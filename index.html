@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TTSL 8</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        .header-image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0; /* Spazio sopra e sotto l'immagine */
+            text-align: center;
+        }
+        .points {
+            font-weight: 600; /* Valore leggermente in grassetto */
+        }
+    </style>
+</head>
+<body>
+    <!-- Contenitore per centrare l'immagine -->
+    <div class="header-image-container">
+        <a href="https://www.instagram.com/thetrueleague/" target="_blank">
+            <img src="ttsl8logo.jpg" alt="Header Image" style="max-width: 50%; height: auto;">
+        </a>
+    </div>
+
+    <table class="football-table">
+        <thead>
+            <tr>
+                <th>Posizione</th>
+                <th>Squadra</th>
+                <th>Partite Giocate</th>
+                <th>Vittorie</th>
+                <th>Pareggi</th>
+                <th>Sconfitte</th>
+                <th>Punti</th>
+                <th>Vittorie da Capitano</th>
+            </tr>
+        </thead>
+        <tbody id="team-table">
+            <tr>
+                <td>1</td>
+                <td>L’ESTASI DELL’ORO</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="points">0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>KIM JONG-UN ITED</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="points">0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>BIRRAREAL</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="points">0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>FREE GARINDI</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="points">0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>LAPO EL NICOSIA</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="points">0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>LUVUMBO STON CELTICS</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="points">0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>ANDIAMO AL CUS CAGLIARI</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="points">0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>TAGAZZU CUS CAGLIARI</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="points">0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>REAL COLIZZATI</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="points">0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>ASTON BIRRA</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="points">0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>CUCURUS COTUS FC</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="points">0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>LENNART CZYBORRA FAN CLUB</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="points">0</td>
+                <td>0</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        function updateTable() {
+            const table = document.getElementById('team-table');
+            const rows = Array.from(table.querySelectorAll('tr'));
+
+            rows.sort((a, b) => {
+                const pointsA = parseInt(a.cells[6].innerText);
+                const pointsB = parseInt(b.cells[6].innerText);
+                const gamesA = parseInt(a.cells[2].innerText);
+                const gamesB = parseInt(b.cells[2].innerText);
+                const captainWinsA = parseInt(a.cells[7].innerText);
+                const captainWinsB = parseInt(b.cells[7].innerText);
+
+                if (pointsA !== pointsB) {
+                    return pointsB - pointsA;
+                }
+                if (gamesA !== gamesB) {
+                    return gamesA - gamesB;
+                }
+                return captainWinsB - captainWinsA;
+            });
+
+            rows.forEach((row, index) => {
+                row.cells[0].innerText = index + 1;
+                table.appendChild(row);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', updateTable);
+    </script>
+</body>
+</html>

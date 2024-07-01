@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    margin-top: 20px;
+    color: #333;
+}
+
+.football-table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.football-table th, .football-table td {
+    padding: 12px 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.football-table th {
+    background-color: #FFA500; /* Arancione */
+    color: #fff; /* Testo bianco */
+}
+
+.football-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.football-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
