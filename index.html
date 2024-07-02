@@ -7,15 +7,35 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
-        .header-image-container {
+        .header {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            margin: 10px 0; /* Spazio sopra e sotto l'immagine */
-            text-align: center;
+            margin: 20px 0; /* Spazio sopra e sotto l'immagine */
+            padding: 0 20px;
+        }
+        .header-image-container {
+            max-width: 50%; /* Limita la larghezza del logo */
+            margin-right: 20px; /* Spazio tra l'immagine e le icone social */
+        }
+        .header-image-container img {
+            width: 100%;
+            height: auto;
+        }
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+        .social-icons img {
+            width: 30px;
+            height: 30px;
         }
         .points {
             font-weight: 600; /* Valore leggermente in grassetto */
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
         }
     </style>
 </head>
@@ -23,7 +43,15 @@
     <!-- Contenitore per centrare l'immagine -->
     <div class="header-image-container">
         <a href="https://www.instagram.com/thetrueleague/" target="_blank">
-            <img src="ttsl8logo.jpg" alt="Header Image" style="max-width: 50%; height: auto;">
+            <img src="logo2.png" alt="Header Image" style="max-width: 100%; height: auto;">
+        </a>
+    </div>
+    <div class="social-icons">
+        <a href="https://www.instagram.com/thetrueleague/" target="_blank">
+            <img src="instagram.png" alt="Instagram 1">
+        </a>
+        <a href="https://thetrueleague1.webnode.it/" target="_blank">
+            <img src="browser.png" alt="Website">
         </a>
     </div>
 
@@ -163,6 +191,12 @@
             </tr>
         </tbody>
     </table>
+
+    <div class="footer">
+        <div class="info-text">
+            Giovedì 22:00 - 23:00, Campi 15D, Via Benjamin Franklin, 09047 Selargius CA
+        </div>
+    </div>
 
     <script>
         function updateTable() {
