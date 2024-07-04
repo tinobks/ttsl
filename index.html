@@ -66,37 +66,41 @@
                 <th>Sconfitte</th>
                 <th>Punti</th>
                 <th>Vittorie da Capitano</th>
+                <th>Sconfitte da Capitano</th>
             </tr>
         </thead>
         <tbody id="team-table">
             <tr>
                 <td>1</td>
                 <td>L’ESTASI DELL’ORO</td>
+                <td>1</td>
                 <td>0</td>
                 <td>0</td>
-                <td>0</td>
-                <td>0</td>
+                <td>1</td>
                 <td class="points">0</td>
                 <td>0</td>
+                <td>1</td>
             </tr>
             <tr>
                 <td>2</td>
                 <td>KIM JONG-UN ITED</td>
+                <td>1</td>
+                <td>1</td>
                 <td>0</td>
                 <td>0</td>
+                <td class="points">3</td>
                 <td>0</td>
-                <td>0</td>
-                <td class="points">0</td>
                 <td>0</td>
             </tr>
             <tr>
                 <td>3</td>
                 <td>BIRRAREAL</td>
+                <td>1</td>
                 <td>0</td>
                 <td>0</td>
-                <td>0</td>
-                <td>0</td>
+                <td>1</td>
                 <td class="points">0</td>
+                <td>0</td>
                 <td>0</td>
             </tr>
             <tr>
@@ -108,75 +112,83 @@
                 <td>0</td>
                 <td class="points">0</td>
                 <td>0</td>
+                <td>0</td>
             </tr>
             <tr>
                 <td>5</td>
                 <td>LAPO EL NICOSIA</td>
+                <td>1</td>
+                <td>1</td>
                 <td>0</td>
                 <td>0</td>
+                <td class="points">3</td>
                 <td>0</td>
-                <td>0</td>
-                <td class="points">0</td>
                 <td>0</td>
             </tr>
             <tr>
                 <td>6</td>
                 <td>LUVUMBO STON CELTICS</td>
+                <td>1</td>
                 <td>0</td>
                 <td>0</td>
-                <td>0</td>
-                <td>0</td>
+                <td>1</td>
                 <td class="points">0</td>
+                <td>0</td>
                 <td>0</td>
             </tr>
             <tr>
                 <td>7</td>
                 <td>ANDIAMO AL CUS CAGLIARI</td>
+                <td>1</td>
+                <td>1</td>
                 <td>0</td>
                 <td>0</td>
+                <td class="points">3</td>
                 <td>0</td>
-                <td>0</td>
-                <td class="points">0</td>
                 <td>0</td>
             </tr>
             <tr>
                 <td>8</td>
                 <td>TAGAZZU CUS CAGLIARI</td>
+                <td>1</td>
+                <td>1</td>
                 <td>0</td>
                 <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td class="points">0</td>
+                <td class="points">3</td>
+                <td>1</td>
                 <td>0</td>
             </tr>
             <tr>
                 <td>9</td>
                 <td>REAL COLIZZATI</td>
+                <td>1</td>
                 <td>0</td>
                 <td>0</td>
-                <td>0</td>
-                <td>0</td>
+                <td>1</td>
                 <td class="points">0</td>
+                <td>0</td>
                 <td>0</td>
             </tr>
             <tr>
                 <td>10</td>
-                <td>ASTON BIRRA</td>
+                <td>JOHN PORK FC</td>
+                <td>1</td>
                 <td>0</td>
                 <td>0</td>
-                <td>0</td>
-                <td>0</td>
+                <td>1</td>
                 <td class="points">0</td>
+                <td>0</td>
                 <td>0</td>
             </tr>
             <tr>
                 <td>11</td>
                 <td>CUCURUS COTUS FC</td>
+                <td>1</td>
+                <td>1</td>
                 <td>0</td>
                 <td>0</td>
+                <td class="points">3</td>
                 <td>0</td>
-                <td>0</td>
-                <td class="points">0</td>
                 <td>0</td>
             </tr>
             <tr>
@@ -187,6 +199,7 @@
                 <td>0</td>
                 <td>0</td>
                 <td class="points">0</td>
+                <td>0</td>
                 <td>0</td>
             </tr>
         </tbody>
@@ -200,33 +213,43 @@
 
     <script>
         function updateTable() {
-            const table = document.getElementById('team-table');
-            const rows = Array.from(table.querySelectorAll('tr'));
+        const table = document.getElementById('team-table');
+        const rows = Array.from(table.querySelectorAll('tr'));
 
-            rows.sort((a, b) => {
-                const pointsA = parseInt(a.cells[6].innerText);
-                const pointsB = parseInt(b.cells[6].innerText);
-                const gamesA = parseInt(a.cells[2].innerText);
-                const gamesB = parseInt(b.cells[2].innerText);
-                const captainWinsA = parseInt(a.cells[7].innerText);
-                const captainWinsB = parseInt(b.cells[7].innerText);
+        rows.sort((a, b) => {
+            const pointsA = parseInt(a.cells[6].innerText);
+            const pointsB = parseInt(b.cells[6].innerText);
+            const gamesA = parseInt(a.cells[2].innerText);
+            const gamesB = parseInt(b.cells[2].innerText);
+            const captainWinsA = parseInt(a.cells[7].innerText);
+            const captainWinsB = parseInt(b.cells[7].innerText);
+            const captainLossesA = parseInt(a.cells[8].innerText);
+            const captainLossesB = parseInt(b.cells[8].innerText);
+            const teamNameA = a.cells[1].innerText.toLowerCase();
+            const teamNameB = b.cells[1].innerText.toLowerCase();
 
-                if (pointsA !== pointsB) {
-                    return pointsB - pointsA;
-                }
-                if (gamesA !== gamesB) {
-                    return gamesA - gamesB;
-                }
+            if (pointsA !== pointsB) {
+                return pointsB - pointsA;
+            }
+            if (gamesA !== gamesB) {
+                return gamesA - gamesB;
+            }
+            if (captainWinsA !== captainWinsB) {
                 return captainWinsB - captainWinsA;
-            });
+            }
+            if (captainLossesA !== captainLossesB) {
+                return captainLossesA - captainLossesB;
+            }
+            return teamNameA.localeCompare(teamNameB);
+        });
 
-            rows.forEach((row, index) => {
-                row.cells[0].innerText = index + 1;
-                table.appendChild(row);
-            });
-        }
+        rows.forEach((row, index) => {
+            row.cells[0].innerText = index + 1;
+            table.appendChild(row);
+        });
+    }
 
-        document.addEventListener('DOMContentLoaded', updateTable);
+    document.addEventListener('DOMContentLoaded', updateTable);
     </script>
 </body>
 </html>
