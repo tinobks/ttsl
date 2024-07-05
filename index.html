@@ -6,6 +6,35 @@
     <title>TTSL 8</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <script type="text/javascript">
+        (function (c, a) {
+            var t = true;
+            var i = t;
+            var s = a.createElement("script");
+            s.src = "https://js.monitor.azure.com/scripts/b/ai.2.min.js";
+            a.getElementsByTagName("head")[0].appendChild(s);
+            c.appInsights = {
+                queue: [],
+                config: {
+                    instrumentationKey: "6d43d6cc-a3f9-4b5b-977a-142f260c5dfc"
+                }
+            };
+            s.onload = function () {
+                c.appInsights = new Microsoft.ApplicationInsights.ApplicationInsights(c.appInsights.config);
+                c.appInsights.loadAppInsights();
+                c.appInsights.trackPageView();
+                c.appInsights.trackEvent({ name: "Page Loaded" });
+            };
+            if (t) {
+                var a = function (n) { c.appInsights.queue.push(n); };
+                for (var m = ["Event", "Exception", "Metric", "PageView", "Trace", "Dependency"]; i && m.length;) {
+                    a("track" + m.pop());
+                }
+            }
+        })(window, document);
+    </script>
+
     <style>
         .header {
             display: flex;
