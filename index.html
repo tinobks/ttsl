@@ -225,23 +225,33 @@
             const captainWinsB = parseInt(b.cells[7].innerText);
             const captainLossesA = parseInt(a.cells[8].innerText);
             const captainLossesB = parseInt(b.cells[8].innerText);
-            const teamNameA = a.cells[1].innerText.toLowerCase();
-            const teamNameB = b.cells[1].innerText.toLowerCase();
+            const teamA = a.cells[1].innerText.toUpperCase();
+            const teamB = b.cells[1].innerText.toUpperCase();
+
+            // Differenza tra vittorie e sconfitte da capitano
+            const captainDiffA = captainWinsA - captainLossesA;
+            const captainDiffB = captainWinsB - captainLossesB;
 
             if (pointsA !== pointsB) {
-                return pointsB - pointsA;
+            return pointsB - pointsA; // Punti
             }
             if (gamesA !== gamesB) {
-                return gamesA - gamesB;
+                return gamesA - gamesB; // Minor numero di partite giocate
+            }
+            if (captainDiffA !== captainDiffB) {
+                return captainDiffB - captainDiffA; // Maggiore differenza tra vittorie e sconfitte da capitano
             }
             if (captainWinsA !== captainWinsB) {
-                return captainWinsB - captainWinsA;
+                return captainWinsB - captainWinsA; // Maggior numero di vittorie da capitano
             }
-            if (captainLossesA !== captainLossesB) {
-                return captainLossesA - captainLossesB;
+            if (teamA < teamB) {
+                return -1; // Ordine alfabetico
             }
-            return teamNameA.localeCompare(teamNameB);
-        });
+            if (teamA > teamB) {
+                return 1;
+            }
+            return 0;
+            });
 
         rows.forEach((row, index) => {
             row.cells[0].innerText = index + 1;
